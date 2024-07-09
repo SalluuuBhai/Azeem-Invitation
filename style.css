@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&family=Lobster&family=Lumanosimo&family=Pacifico&family=Poppins:ital,wght@0,400;1,200&family=Roboto:ital,wght@0,400;1,100&family=Sacramento&family=Send+Flowers&family=Tangerine:wght@700&display=swap");
 
+@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400..700&display=swap');
+
 /* font-family: 'Dancing Script', cursive;
 font-family: 'Great Vibes', cursive;
 font-family: 'Lobster', cursive;
@@ -10,6 +12,15 @@ font-family: 'Roboto', sans-serif;
 font-family: 'Sacramento', cursive;
 font-family: 'Send Flowers', cursive;
 font-family: 'Tangerine', cursive; */
+
+
+
+/* .reem-kufi-<uniquifier> {
+  font-family: "Reem Kufi", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+} */
 
 * {
   margin: 0;
@@ -52,6 +63,21 @@ body {
   font-size: 38px;
   text-transform: capitalize;
 }
+.barakallah{
+  font-family: "Reem Kufi", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 30px;
+}
+.barakallah-eng{
+  font-family: "Reem Kufi", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+}
+
 
 .text-center {
   text-align: center;
@@ -90,7 +116,7 @@ body {
 #kasim {
   font-family: "Pacifico", cursive;
   font-weight: 200;
-  font-size: 15px;
+  font-size: 17px;
 }
 
 h2 > span {
