@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
       document.querySelector('.counter').innerHTML;
       // Update the heading text
       document.getElementById('timing').textContent = 'Days Since Marriage';
+      document.getElementById('inshaallah').textContent = 'Alhamdulillah';
 
       return;
     }
@@ -52,6 +53,8 @@ document.addEventListener('DOMContentLoaded', function () {
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
+
+
   // Add to Calendar link
   document.getElementById('addToCalendarLink').addEventListener('click', function (e) {
     e.preventDefault();
@@ -64,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
       endDate: '20240818T153000'
     };
 
+    // Create ICS file
     const icsData = `
 BEGIN:VCALENDAR
 VERSION:2.0
@@ -86,7 +90,17 @@ END:VCALENDAR
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
+
+    // Google Calendar link
+    const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventDetails.title)}&dates=${eventDetails.startDate}/${eventDetails.endDate}&details=${encodeURIComponent(eventDetails.description)}&location=${encodeURIComponent(eventDetails.location)}`;
+    window.open(googleCalendarUrl, '_blank');
+
+    // Apple Calendar link
+    const appleCalendarUrl = `data:text/calendar;charset=utf8,${encodeURIComponent(icsData)}`;
+    window.open(appleCalendarUrl, '_blank');
   });
+
+
    // Set current year in the footer
    const currentYear = new Date().getFullYear();
    document.getElementById('year').textContent = currentYear;
