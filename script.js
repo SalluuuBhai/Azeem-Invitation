@@ -76,22 +76,23 @@ document.addEventListener("DOMContentLoaded", function () {
   setInterval(updateCountdown, 1000);
 
   // Add to Calendar link
-  document
-    .getElementById("addToCalendarLink")
-    .addEventListener("click", function (e) {
-      e.preventDefault();
+  document.getElementById('addToCalendarLink').addEventListener('click', function (e) {
+    e.preventDefault();
 
-      const eventDetails = {
-        title: "Mohamed Azeem & Samar Fathima Wedding",
-        location: "ASK Sangamithirai Marriage Hall, Thandavankulam",
-        description:
-          "Join us to celebrate the wedding of Mohamed Azeem and Samar Fathima.",
-        startDate: "20240818T110000",
-        endDate: "20240818T123000",
-      };
+    const eventDetails = {
+      title: 'Mohamed Azeem & Samar Fathima Wedding',
+      location: 'ASK Sangamithirai Marriage Hall, Thandavankulam',
+      description: 'Join us to celebrate the wedding of Mohamed Azeem and Samar Fathima.',
+      startDate: '20240818T110000',
+      endDate: '20240818T123000'
+    };
 
-      // Create ICS file
-      const icsData = `
+    // Google Calendar link
+    const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventDetails.title)}&dates=${eventDetails.startDate}/${eventDetails.endDate}&details=${encodeURIComponent(eventDetails.description)}&location=${encodeURIComponent(eventDetails.location)}`;
+    window.open(googleCalendarUrl, '_blank');
+
+    // Apple Calendar link
+    const appleCalendarUrl = `data:text/calendar;charset=utf8,${encodeURIComponent(`
 BEGIN:VCALENDAR
 VERSION:2.0
 BEGIN:VEVENT
@@ -102,34 +103,9 @@ DTSTART:${eventDetails.startDate}
 DTEND:${eventDetails.endDate}
 END:VEVENT
 END:VCALENDAR
-    `;
-
-      const blob = new Blob([icsData], { type: "text/calendar" });
-      const url = URL.createObjectURL(blob);
-
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "wedding-invitation.ics";
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-
-      // Google Calendar link
-      const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
-        eventDetails.title
-      )}&dates=${eventDetails.startDate}/${
-        eventDetails.endDate
-      }&details=${encodeURIComponent(
-        eventDetails.description
-      )}&location=${encodeURIComponent(eventDetails.location)}`;
-      window.open(googleCalendarUrl, "_blank");
-
-      // Apple Calendar link
-      const appleCalendarUrl = `data:text/calendar;charset=utf8,${encodeURIComponent(
-        icsData
-      )}`;
-      window.open(appleCalendarUrl, "_blank");
-    });
+    `)}`;
+    window.open(appleCalendarUrl, '_blank');
+  });
 
   // Set current year in the footer
   const currentYear = new Date().getFullYear();
