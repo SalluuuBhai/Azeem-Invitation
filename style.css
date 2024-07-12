@@ -594,3 +594,29 @@ small {
 #plan {
   font-weight: bold;
 }
+
+
+/* Footer Styling */
+.footer {
+  /* background-color: #f8f9fa;  */
+  padding: 20px 0; /* Vertical padding */
+  border-top: 1px solid #e9ecef; /* Light border at the top */
+  font-family: 'Open Sans', sans-serif; /* Consistent font family */
+  color: #343a40; /* Dark text color */
+}
+
+.footer a {
+  text-decoration: none; /* Remove underline from the link */
+  color: #343a40; /* Dark text color */
+  font-weight: 600; /* Slightly bold text */
+}
+
+.footer a:hover {
+  color: #007bff; /* Change color on hover */
+  text-decoration: underline; /* Underline on hover */
+}
+
+.footer span {
+  font-weight: 700; /* Bold year */
+}
+
